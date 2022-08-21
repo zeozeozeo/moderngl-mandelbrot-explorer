@@ -1,5 +1,5 @@
 # moderngl-mandelbrot-explorer
-![mandelbrot explorer](https://streamable.com/tz2gje)
+[video](https://streamable.com/tz2gje)
 # controls
 
     WASD - move camera
