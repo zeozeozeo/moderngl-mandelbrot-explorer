@@ -18,18 +18,6 @@ float mandelbrot(vec2 uv) {
     return 0.0;
 }
 
-float julia(vec2 uv) {
-    vec2 c = 5.0 * uv - vec2(0.7, 0.0);
-    c = c / pow(zoom, 4.0) - camera_pos;
-    vec2 z = vec2(0.0);
-    for (float i = 0.0; i < max_iter; i++) {
-        z = vec2(z.x * z.x - z.y * z.y,
-                2.0 * z.x * z.y) + c;
-        if (dot(z, z) > 4.0) return i / max_iter;
-    }
-    return 0.0;
-}
-
 vec3 hash13(float m) {
     float x = fract(sin(m) * 5625.246);
     float y = fract(sin(m + x) * 2216.486);
@@ -41,7 +29,7 @@ void main(void) {
     vec2 uv = (gl_FragCoord.xy - 0.5 * window_size.xy) / window_size.y;
     vec3 col = vec3(0.0);
 
-    float m = julia(uv);
+    float m = mandelbrot(uv);
     if (max_iter >= MAX_ITERATIONS) {
         col += hash13(m);
     } else {
