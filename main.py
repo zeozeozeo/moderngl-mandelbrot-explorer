@@ -1,5 +1,5 @@
 import moderngl_window as mglw
-MAX_ITERATIONS = 128+1
+MAX_ITERATIONS = 128
 INSTANT = False
 
 def interpolation(start, stop, step):
